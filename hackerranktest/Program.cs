@@ -62,34 +62,7 @@ namespace hackerranktest
 
         }
         
-        /// <summary>
-        /// Search matching braces in a string
-        /// </summary>
-        /// <param name="s">string to be searched</param>
-        /// <param name="a">opening brace</param>
-        /// <param name="b">closing brace</param>
-        /// <returns></returns>
-        //public static bool isMatch(string s,string[] a,string[] b)
-        //{
 
-
-        //    if (!TestBraces(s, a))
-        //        return false;
-
-
-        //    int posOpening = s.IndexOf(a);
-        //    int posClosing = s.LastIndexOf(b);
-
-        //    if (posOpening > posClosing)
-        //        return false;
-
-        //    if (posOpening + 1 == posClosing) //the enclosed string is empty
-        //        return true;
-
-        //    string substr = s.Substring(posOpening + 1, posClosing - posOpening - 1); //now i find the closing string
-
-        //    return isMatch(substr, a, b);  //recursion until the enclosed string is empty or not a match
-        //}
         public static bool IsBraced(string s)
         {
             var braces = new Stack<char>();
