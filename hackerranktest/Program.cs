@@ -65,7 +65,7 @@ namespace hackerranktest
 
         public static bool IsBraced(string s)
         {
-            var braces = new Stack<char>();
+            var bracesStack = new Stack<char>();
             var closures = new char[] {'}', ']', ')' };
             var openings = new char[] { '{', '[', '(' };
 
@@ -77,20 +77,20 @@ namespace hackerranktest
             for (int i = 0; i < s.Length; i++)
             {
                 if (openings.Contains(s[i]))
-                    braces.Push(s[i]);
+                    bracesStack.Push(s[i]);
 
                 if (closures.Contains(s[i])  )
                 {
-                    if (braces.Count == 0) //stack is empty
+                    if (bracesStack.Count == 0) //stack is empty
                         return false;
 
-                    if (s[i] == matching[braces.Peek()])
-                        braces.Pop();
+                    if (s[i] == matching[bracesStack.Peek()]) //the closure is consisten with the opening
+                        bracesStack.Pop();
                     else
                         return false;   
                 }
             }
-            return braces.Count == 0;
+            return bracesStack.Count == 0;
 
 
             
