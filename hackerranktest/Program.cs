@@ -1,0 +1,145 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace hackerranktest
+{
+    public class Program
+    {
+        static Dictionary<string, string> closures = getClosingMatchs();
+        static bool HasSequentialDuplicates(string word)
+        {
+            if (word.Length > 100)
+                throw new Exception("the word should not be longer than 100 characters");
+            var chars = word.ToLower().ToCharArray();
+
+            for (int i = 1; i < word.Length; i++)
+            {
+                if (chars[i - 1] == chars[i])
+                    return true;
+            }
+
+            return false;
+
+        }
+        public static Dictionary<string,string> getClosingMatchs()
+        {
+            var rs = new Dictionary<string, string>();
+            rs.Add("{", "}");
+            ; rs.Add("[", "]");
+            rs.Add("(", ")");
+
+            return rs;
+            
+        }
+        static int sum(int[] numbers)
+        {
+            int sum = 0;
+            for (int i = 1; i < numbers.Length; i++)
+            {
+                sum = sum + numbers[i];
+            }
+
+            return sum;
+
+        }
+        
+        public static bool TestBraces(string s, string[] a)
+        {
+            foreach (var ss in a)
+            {
+                if (!s.Contains(ss) && !s.Contains(closures[ss]))
+                    continue;
+                if (s.Contains(closures[ss]) && !s.Contains(ss))
+                    return false;
+                if (!s.Contains(closures[ss]) && s.Contains(ss))
+                    return false;
+
+            }
+            return true;
+
+        }
+        
+        /// <summary>
+        /// Search matching braces in a string
+        /// </summary>
+        /// <param name="s">string to be searched</param>
+        /// <param name="a">opening brace</param>
+        /// <param name="b">closing brace</param>
+        /// <returns></returns>
+        //public static bool isMatch(string s,string[] a,string[] b)
+        //{
+
+
+        //    if (!TestBraces(s, a))
+        //        return false;
+
+
+        //    int posOpening = s.IndexOf(a);
+        //    int posClosing = s.LastIndexOf(b);
+
+        //    if (posOpening > posClosing)
+        //        return false;
+
+        //    if (posOpening + 1 == posClosing) //the enclosed string is empty
+        //        return true;
+
+        //    string substr = s.Substring(posOpening + 1, posClosing - posOpening - 1); //now i find the closing string
+
+        //    return isMatch(substr, a, b);  //recursion until the enclosed string is empty or not a match
+        //}
+        public static bool IsBraced(string s)
+        {
+            var braces = new Stack<char>();
+            var closures = new char[] {'}', ']', ')' };
+            var openings = new char[] { '{', '[', '(' };
+
+            var matching = new Dictionary<char, char>();
+            matching.Add('{', '}');
+            matching.Add('[', ']');
+            matching.Add('(', ')');
+
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (openings.Contains(s[i]))
+                    braces.Push(s[i]);
+
+                if (closures.Contains(s[i])  )
+                {
+                    if (braces.Count == 0) //stack is empty
+                        return false;
+
+                    if (s[i] == matching[braces.Peek()])
+                        braces.Pop();
+                    else
+                        return false;   
+                }
+            }
+            return braces.Count == 0;
+
+
+            
+            }
+
+       
+        public static int division(int numerator, int denominator)
+        {
+            int result = 0;
+            while (numerator >= denominator)
+            {
+                numerator = numerator - denominator;
+                result++;
+            }
+            return result;
+        }
+        static void Main(string[] args)
+        {
+            Console.Write( division(4,2));
+           // string[] str = new string[] { "{}[]()", "{[}]}" };
+           // var rs = braces(str);
+
+        }
+    }
+}
