@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="BracingTest.cs" />
     <Compile Include="IntMathTest.cs" />
+    <Compile Include="InvertArrayTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
