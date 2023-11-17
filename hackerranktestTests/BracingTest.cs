@@ -9,40 +9,40 @@ using hackerranktest;
 namespace hackerranktest.Tests
 {
     [TestClass()]
-    public class ProgramTests
+    public class BracingTest
     {
         [TestMethod()]
         public void divisionTest()
         {
-            var r = Program.division(4, 2);
+            var r = IntMath.division(4, 2);
             Assert.AreEqual(2, r);
 
         }
         [TestMethod()]
         public void divisionTest4()
         {
-            var r = Program.division(300, 2);
+            var r = IntMath.division(300, 2);
             Assert.AreEqual(150, r);
 
         }
         [TestMethod()]
         public void divisionTest2()
         {
-            var r = Program.division(100, 2);
+            var r = IntMath.division(100, 2);
             Assert.AreEqual(50, r);
 
         }
         [TestMethod()]
         public void divisionTest3()
         {
-            var r = Program.division(5, 2);
+            var r = IntMath.division(5, 2);
             Assert.AreEqual(2, r);
 
         }
         [TestMethod()]
         public void divisionTest5()
         {
-            var r = Program.division(6, 2);
+            var r = IntMath.division(6, 2);
             Assert.AreEqual(3, r);
 
         }
@@ -51,7 +51,7 @@ namespace hackerranktest.Tests
         {
             var r = "{}(){[]}";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsTrue(actual);
 
         }
@@ -60,7 +60,7 @@ namespace hackerranktest.Tests
         {
             var r = "}(){[]}";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsFalse(actual);
 
         }
@@ -69,7 +69,7 @@ namespace hackerranktest.Tests
         {
             var r = "{[)]";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsFalse(actual);
 
         }
@@ -78,7 +78,7 @@ namespace hackerranktest.Tests
         {
             var r = "{[)]";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsFalse(actual);
 
         }
@@ -87,7 +87,7 @@ namespace hackerranktest.Tests
         {
             var r = "openings.Contains(s[i])&&braces.Push(s[i]),closures.Contains(s[i])&&(0==braces.Count&&alert(),s[i]==matching[braces.Peek()]&&braces.Pop());";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsTrue(actual);
 
         }
@@ -96,7 +96,7 @@ namespace hackerranktest.Tests
         {
             var r = "openings.Contains(s[i])&&braces.Push(s[i]),closures.Contains(s[i])&&(0==braces.Count&&alert(),s[i==matching[braces.Peek()]&&braces.Pop());";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsFalse(actual);
 
         }
@@ -105,7 +105,7 @@ namespace hackerranktest.Tests
         {
             var r = "{[}";
 
-            var actual = Program.IsBraced(r);
+            var actual = Bracing.IsBraced(r);
             Assert.IsFalse(actual);
 
         }
