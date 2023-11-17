@@ -52,6 +52,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BracingTest.cs" />
+    <Compile Include="IntMathTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
