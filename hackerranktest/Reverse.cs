@@ -17,6 +17,25 @@ namespace hackerranktest
             }
             return myStack.ToArray();
         }
- 
+        public static bool IsPalindromeNumber(int number)
+        {
+            if (number < 0 || (number % 10 == 0 && number != 0))
+            {
+                return false;
+            }
+
+            int reversedNumber = 0;
+            int originalNumber = number;
+
+            while (number > 0)
+            {
+                int digit = number % 10;
+                reversedNumber = reversedNumber * 10 + digit;
+                number /= 10;
+            }
+
+            return originalNumber == reversedNumber;
+        }
+
     }
 }

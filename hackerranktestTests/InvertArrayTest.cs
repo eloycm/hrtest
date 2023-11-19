@@ -32,6 +32,20 @@ namespace HackerRankApp.Tests
             var expected = "string test a is this";
             Assert.AreEqual(expected, actual);
         }
+        [TestMethod()]
+        public void PalindromeNumberTest()
+        {
+            var expected = Reverse.IsPalindromeNumber(12321);
+            var actual = true;
+            Assert.AreEqual(expected, actual);
+        }
+        [TestMethod()]
+        public void PalindromeNumberTest2()
+        {
+            var expected = Reverse.IsPalindromeNumber(123);
+            var actual = false;
+            Assert.AreEqual(expected, actual);
+        }
 
     }
 }
