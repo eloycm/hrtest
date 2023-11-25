@@ -35,6 +35,15 @@ namespace hackerranktestTests
             var rs = Words.TopNWords(inputString, 3);
             return rs;
         }
+        [TestMethod()]
+        public void TestCamelToUnderscore()
+        {
+            var inputString = "PascalCaseVariable";
+            var expected = "pascal_case_variable";
+            var actual =Words.CamelToUnderscore(inputString);
+
+            Assert.AreEqual(expected, actual);
+        }
     }
     
 }

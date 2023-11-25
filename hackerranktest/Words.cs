@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -33,6 +34,29 @@ namespace hackerranktest
            
             return orderWords;
 
+        }
+        public static string CamelToUnderscore(string inputString)
+        {
+            var sb=new StringBuilder();
+            for (int i = 0; i < inputString.Length; i++)
+            {
+                char c = inputString[i];
+                if (i == 0)
+                {
+                    sb.Append(char.ToLower(c));
+                    continue;
+                }
+                if (char.IsUpper(c))
+                {
+                    sb.Append($"_{char.ToLower(c)}");
+                    continue;
+                }
+
+                sb.Append(c);
+                
+            }
+            var rs=sb.ToString();
+            return rs;
         }
     }
 }
