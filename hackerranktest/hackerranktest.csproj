@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bracing.cs" />
+    <Compile Include="BST\BinarySearchTree.cs" />
+    <Compile Include="BST\Node.cs" />
     <Compile Include="Distance\ExploringList.cs" />
     <Compile Include="Distance\GDistance.cs" />
     <Compile Include="IntMath.cs" />
