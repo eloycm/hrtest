@@ -49,6 +49,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bracing.cs" />
+    <Compile Include="Distance\ExploringList.cs" />
+    <Compile Include="Distance\GDistance.cs" />
     <Compile Include="IntMath.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
