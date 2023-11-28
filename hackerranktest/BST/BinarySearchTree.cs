@@ -61,8 +61,8 @@ namespace hackerranktest.BST
             return FirstUpLeft(initialNode.parent);
         }
         /// <summary>
+        /// This is an excersiso on finding the InOrder Successor on a bst
         /// The smallest value tha is greater than the value of a given node
-        /// watch: https://www.youtube.com/watch?v=jma9hFQSCDk
         /// </summary>
         /// <param name="initialNode"></param>
         /// <returns></returns>
