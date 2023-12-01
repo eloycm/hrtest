@@ -17,7 +17,9 @@ namespace hackerranktest.BST
 
         public void Insert(int value)
         {
+            
             root = InsertRec(root, null, value);
+            
         }
 
         private Node InsertRec(Node root, Node parent, int value)
@@ -36,6 +38,26 @@ namespace hackerranktest.BST
 
             return root;
         }
+        //write a find method that finds a node with a given value
+        public Node Find(int value)
+        {
+            return FindRec(root, value);
+        }
+        //write a FindRec method that finds a node with a given value
+
+        private Node FindRec(Node root, int value)
+        {
+            if (root == null)
+                return null;
+
+            if (root.data == value)
+                return root;
+
+            return value < root.data ?
+                FindRec(root.left, value) :
+                FindRec(root.right, value);
+        }
+
         /// <summary>
         /// Given a node, transverse the whole tree going always to the left
         /// return the lowest possible left node

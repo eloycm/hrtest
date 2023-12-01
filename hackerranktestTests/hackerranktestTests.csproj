@@ -51,6 +51,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="BinaryTest.cs" />
     <Compile Include="BracingTest.cs" />
     <Compile Include="IntMathTest.cs" />
     <Compile Include="InvertArrayTest.cs" />
