@@ -38,6 +38,15 @@ namespace hackerranktestTests
             Assert.AreEqual(expectedNode, actual);
 
         }
+        //write a test method for arrayutil.sort
+        [TestMethod()]
+        public void SortTest()
+        {
+            var arr = new int[] { 20, 9, 25, 5, 12, 11, 14, 15, 13, 10, 8 };
+            var actual = ArrayUtil.Sort(arr);
+            var expected = new List<int> { 5, 8, 9, 10, 11, 12, 13, 14, 15, 20, 25 };
+            CollectionAssert.AreEqual(expected, actual);
+        }
 
     }
 }

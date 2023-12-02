@@ -9,6 +9,7 @@ namespace hackerranktest.BST
     public class BinarySearchTree
     {
         private Node root;
+        private List<int> traversalRecord = new List<int>();
 
         public BinarySearchTree()
         {
@@ -120,10 +121,11 @@ namespace hackerranktest.BST
                 SearchRec(root.right, value);
         }
 
-        public void InorderTraversal()
+        public List<int> InorderTraversal()
         {
+            traversalRecord.Clear();
             InorderTraversalRec(root);
-            Console.WriteLine();
+            return traversalRecord;
         }
 
         private void InorderTraversalRec(Node root)
@@ -131,9 +133,10 @@ namespace hackerranktest.BST
             if (root != null)
             {
                 InorderTraversalRec(root.left);
-                Console.Write(root.data + " ");
+                traversalRecord.Add(root.data);
                 InorderTraversalRec(root.right);
             }
         }
+
     }
 }
