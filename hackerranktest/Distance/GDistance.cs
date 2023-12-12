@@ -9,6 +9,13 @@ namespace hackerranktest.Distance
 {
     public class GDistance
     {
+        /// <summary>
+        /// Max distance from a block to a list of desidered facilities
+        /// </summary>
+        /// <param name="myFacilities">desidered facilities</param>
+        /// <param name="Blocks">Blocks</param>
+        /// <param name="myPosition">position</param>
+        /// <returns></returns>
         public int MaxDistanceTo(List<string> myFacilities, List<string>[] Blocks, int myPosition)
         {
             var exploring = new ExploringList();
