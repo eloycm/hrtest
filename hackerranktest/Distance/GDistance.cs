@@ -7,8 +7,12 @@ using System.Threading.Tasks;
 
 namespace hackerranktest.Distance
 {
+    /// <summary>
+    /// Find the max distance from a block to a list of desidered facilities
+    /// </summary>
     public class GDistance
     {
+        protected ExploringList exploring = new ExploringList();
         /// <summary>
         /// Max distance from a block to a list of desidered facilities
         /// </summary>
@@ -18,45 +22,35 @@ namespace hackerranktest.Distance
         /// <returns></returns>
         public int MaxDistanceTo(List<string> myFacilities, List<string>[] Blocks, int myPosition)
         {
-            var exploring = new ExploringList();
-      
             exploring.DesideredItems = myFacilities.ToList();
-
-            for (int i = myPosition; i < Blocks.Length; i++)
-            {
-                //up
-                var block = Blocks[i];
-                exploring.AddBlock(block);
-                if (exploring.AllFound)
-                    return i - myPosition;
-
-                //down
-                if (myPosition - i <= 0)
-                    continue;
-                block = Blocks[myPosition - i];
-                exploring.AddBlock(block);
-                if (exploring.AllFound)
-                    return myPosition -i;
-            }
-            return int.MaxValue;
+            var lowerIndex = myPosition;
+            var upperIndex = myPosition;
+            return ExploreArrayRecursive(myFacilities, Blocks, lowerIndex, upperIndex, myPosition);
         }
-        public int FindBlock(List<string> myFacilities, List<string>[] Blocks)
+        private  int ExploreArrayRecursive(List<string> myFacilities, List<string>[] Blocks, int lowerIndex, int upperIndex, int myPositon)
         {
-            var minDistance = int.MaxValue;
-            var rs = int.MaxValue;
-            for (int i = 0; i < Blocks.Length; i++)
+            if (lowerIndex < 0 && upperIndex >= myFacilities.Count())
             {
-                var distance = MaxDistanceTo(myFacilities, Blocks,i);
-                if (minDistance > distance)
-                {
-                    minDistance = distance;
-                    rs= i;
-                }
-                    
+                return int.MaxValue;
             }
 
-            return rs;
+            if (upperIndex < myFacilities.Count())
+            {
+                var block = Blocks[upperIndex];
+                exploring.AddBlock(block);
+                if (exploring.AllFound)
+                    return upperIndex-myPositon;
+            }
 
+            if (lowerIndex >= 0)
+            {
+                var block = Blocks[lowerIndex];
+                exploring.AddBlock(block);
+                if (exploring.AllFound)
+                    return myPositon - lowerIndex;
+            }
+
+            return ExploreArrayRecursive(myFacilities,Blocks, lowerIndex - 1, upperIndex + 1, myPositon);
         }
 
     }
